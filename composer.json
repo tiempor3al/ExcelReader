@@ -1,0 +1,24 @@
+{
+    "name": "tiempor3al/excelreader",
+    "description": "Simple and fast Excel .xlsx parser",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Manuel Martinez",
+            "email": "tiempor3al.manuel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+	"php": "^5.3|^7.0",
+	"ext-zip": "*",
+	"ext-xml": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "tiempor3al\\Excel": "src/",
+            
+        }
+    }
+}
