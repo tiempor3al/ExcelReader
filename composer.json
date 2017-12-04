@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "tiempor3al\\Excel": "src/"
+            "tiempor3al\\Excel\\": "src/"
         }
     }
 }
