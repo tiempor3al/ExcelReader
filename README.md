@@ -1,4 +1,5 @@
-ExcelReader is a very simple and fast Excel (.xlsx) parser with minimal dependencies.
+ExcelReader is a very simple and fast Excel (.xlsx) parser with no third-party dependencies.
+
 
 ```php
 
@@ -35,6 +36,8 @@ foreach ($generator as $cell) {
         //'row' => 8 - the row of the cell
         //'col' => A - the column of the cell
         //'value' => xyz - the value of the cell
+        //Note: Currently the library does not support formula evaluation
+        //Convert the cells with formulas to values prior to parsing
 
         //For values like strings and numbers, we can get the value in $cell['value']
         if ($cell['col'] == 'A') {

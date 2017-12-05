@@ -265,7 +265,7 @@ class Reader{
         //Internally dates are stored as days since January 1st, 1900
         $date = new \DateTime('1900-01-01');
         //For historic reasons Excel adds two days 
-        //see http://www.kirix.com/stratablog/excel-date-conversion-days-from-1900
+        //see https://support.microsoft.com/en-us/help/214326/excel-incorrectly-assumes-that-the-year-1900-is-a-leap-year
         //So we need to substract them
         $days = intval($value) - 2;
         $interval = sprintf("P%sD",$days);
