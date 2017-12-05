@@ -19,6 +19,7 @@ $worksheets = $reader->getWorksheets();
 //We parse the first worksheet and the first two columns
 $generator = $reader->ParseWorksheet($worksheets[0], ['A:B']);
 
+//Since the library uses generators, it consumes little memory
 foreach ($generator as $cell) {
    
     if ($cell === ExcelReader::START_ROW) {
@@ -28,6 +29,12 @@ foreach ($generator as $cell) {
 
     //if cell is an array then we get its value
     if (is_array($cell)) {
+
+        //$cell holds four values:
+        //'cell' => A8 - the position of the cell
+        //'row' => 8 - the row of the cell
+        //'col' => A - the column of the cell
+        //'value' => xyz - the value of the cell
 
         //For values like strings and numbers, we can get the value in $cell['value']
         if ($cell['col'] == 'A') {
