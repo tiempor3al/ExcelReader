@@ -182,10 +182,12 @@ class Reader{
                     $value = $this->sharedStrings[$sharedIndex];
                 }
 
-
-                //Dates
+                //Dates and formulas
                 if($cellType !== null && $cellType == 'n'){
-                    $value = $reader->readString();
+                    $node = $reader->expand()->getElementsByTagName('v');
+                    if($node !== null){
+                        $value = $node->item(0)->nodeValue;
+                    }
                 }
 
                 if($cellType !== null && $cellType == 'str'){
