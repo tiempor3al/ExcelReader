@@ -176,9 +176,16 @@ class Reader{
                 $cellType = $reader->getAttribute('t');
 
                 $value = null;
+                //Shared strings
                 if($cellType !== null && $cellType == 's'){
                     $sharedIndex = $reader->readString();
                     $value = $this->sharedStrings[$sharedIndex];
+                }
+
+
+                //Dates
+                if($cellType !== null && $cellType == 'n'){
+                    $value = $reader->readString();
                 }
 
                 if($cellType !== null && $cellType == 'str'){
@@ -249,5 +256,21 @@ class Reader{
     public function getWorksheets(){
         return array_keys($this->worksheets);
     }
+
+    /**
+     * @return DateTime
+     */
+    public function toDate($value)
+    {
+        //Internally dates are stored as days since January 1st, 1900
+        $date = new \DateTime('1900-01-01');
+        //For historic reasons Excel adds two days 
+        //see http://www.kirix.com/stratablog/excel-date-conversion-days-from-1900
+        //So we need to substract them
+        $days = intval($value) - 2;
+        $interval = sprintf("P%sD",$days);
+        return $date->add(new \DateInterval($interval));
+    }
+
 
 }
