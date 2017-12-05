@@ -1,4 +1,4 @@
-Reader is a very simple and fast Excel (.xlsx) parser.
+ExcelReader is a very simple and fast Excel (.xlsx) parser with minimal dependencies.
 
 ```php
 
